@@ -15,4 +15,9 @@ class WebController extends Controller
     {
         return view('web.checkout');
     }
+
+    public function subscription()
+    {
+        return view('web.subscription');
+    }
 }
