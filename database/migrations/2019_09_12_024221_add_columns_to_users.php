@@ -14,9 +14,9 @@ class AddColumnsToUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('customer_id');
-            $table->string('plan_id');
-            $table->string('subscription_id');
+            $table->string('customer_id')->default("");
+            $table->string('plan_id')->default("");
+            $table->string('subscription_id')->default("");
         });
     }
 
