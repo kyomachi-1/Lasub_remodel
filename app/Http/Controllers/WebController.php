@@ -27,7 +27,7 @@ class WebController extends Controller
         ));
 
         $user = Auth::user();
-        $user->token = $customer->id;
+        $user->customer_id = $customer->id;
         $user->save();
         return response()->json($user);
     }
