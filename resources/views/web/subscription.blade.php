@@ -4,4 +4,6 @@
 
 <h1>Web#Subscription</h1>
 
-@endsection
+<subscription-component></subscription-component>
+
+ @endsection

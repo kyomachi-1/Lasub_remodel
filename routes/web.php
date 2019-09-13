@@ -19,6 +19,8 @@ Route::get('/subscription', 'WebController@subscription')->middleware('auth')->n
 
 Route::post('/api/users/set_token', 'WebController@set_token')->middleware('auth');
 
+Route::post('/api/users/subscription', 'WebController@set_subscription')->middleware('auth');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

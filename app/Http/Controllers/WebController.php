@@ -36,4 +36,22 @@ class WebController extends Controller
     {
         return view('web.subscription');
     }
+
+    public function set_subscription(Request $request)
+    {
+        $pay_jp_secret = env('MIX_PAYJP_SECRET_KEY');
+
+        $user = Auth::user();
+
+        \Payjp\Payjp::setApiKey($pay_jp_secret);
+
+        $plan_id = \Payjp\Plan::all(array("limit" => 1))->data[0]->id;
+
+        \Payjp\Subscription::create(
+            array(
+                "customer" => $user->customer_id,
+                "plan" => $plan_id
+            )
+        );
+    }
 }
