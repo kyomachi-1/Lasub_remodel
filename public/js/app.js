@@ -1745,8 +1745,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      public_key: "pk_test_2b4c28783521bb0f63d2939a",
-      client_id: "f255c8003783d71a4557e3bb64417d732f147aee"
+      public_key: "pk_test_2f0df752f601439fd0e7df80",
+      client_id: "74dcc91fcaa96c30e0bada473baef2f5b6d460d7"
     };
   },
   components: {
@@ -51395,8 +51395,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /mnt/c/Users/shunh/Desktop/lasub/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /mnt/c/Users/shunh/Desktop/lasub/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/ec2-user/environment/lasub/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/ec2-user/environment/lasub/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
