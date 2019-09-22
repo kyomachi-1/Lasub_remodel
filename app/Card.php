@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Ring extends Model
+class Card extends Model
 {
     protected $fillable = [
-        'ring_name', 'user_id',
+        'card_front', 'card_back', 'user_id', 'ring_id',
     ];
     
     public function user()
@@ -15,8 +15,8 @@ class Ring extends Model
         return $this->belongsTo(User::class);
     }
     
-    public function cards()
+    public function ring()
     {
-        return $this->hasMany(Card::class);
+        return $this->belongsTo(Ring::class);
     }
 }
