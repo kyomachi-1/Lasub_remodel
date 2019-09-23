@@ -8,5 +8,8 @@
         <p class="lead">Developed by PHP/Laravel/Vue.js/PAY.JP API</p>
     </div>
 </div>
+<div>
+    <a href="/users/export" class="btn btn-primary">User Export</a>
+</div>
 
 @endsection
