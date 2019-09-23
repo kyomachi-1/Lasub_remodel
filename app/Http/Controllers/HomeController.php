@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Exports\UsersExport;
+use App\Imports\UsersImport;
 use Maatwebsite\Excel\Facades\Excel;
 
 class HomeController extends Controller
@@ -35,7 +36,7 @@ class HomeController extends Controller
     
     public function import(Request $request)
     {
-        Excel::import(new UsersImport, request()->file('file'));
+        Excel::import(new UsersImport, $request->file('file'));
         // input name='file'としてフォームを作成するため
         // ファイルメソッドの第一引数 ファイル名は'file'となる
         
