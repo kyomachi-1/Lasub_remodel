@@ -15,13 +15,11 @@ class CreateCardsTable extends Migration
     {
         Schema::create('cards', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('user_id')->unsigned();
             $table->bigInteger('ring_id')->unsigned();
             $table->string('card_front')->default('表：未設定');
             $table->string('card_back')->default('裏：未設定');
             $table->timestamps();
             
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('ring_id')->references('id')->on('rings')->onDelete('cascade');
         });
     }
