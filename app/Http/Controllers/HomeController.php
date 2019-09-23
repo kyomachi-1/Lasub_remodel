@@ -32,4 +32,14 @@ class HomeController extends Controller
     {
         return Excel::download(new UsersExport, 'users.xlsx');
     }
+    
+    public function import(Request $request)
+    {
+        Excel::import(new UsersImport, request()->file('file'));
+        // input name='file'としてフォームを作成するため
+        // ファイルメソッドの第一引数 ファイル名は'file'となる
+        
+        return redirect('/')->with('success', 'All good!');
+        
+    }
 }
