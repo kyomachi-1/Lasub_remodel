@@ -4,7 +4,9 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                 @if(count($rings) > 0)
+                <h2 class="mb-3">Index Ring</h2>
+
+                @if(count($rings) > 0)
                     <table class="table table-striped">
                         <thead>
                             <tr>
@@ -13,14 +15,15 @@
                             </tr>
                         </thead>
                         <tbody>
-                                <tr>
-                                    @foreach ($rings as $ring)
+                                @foreach ($rings as $ring)
+                                    <tr>
                                         <!--<td class="align-middle">{{ $ring->ring_name }}</td>-->
                                         <td class="align-middle">{!! link_to_route('rings.edit',"$ring->ring_name", ['id' => $ring->id]) !!}</td>
                                         <td class="align-middle" align="right">
                                             {!! link_to_route('rings.edit', 'edit', ['id' => $ring->id], ['class' => 'btn btn-success', 'roll' => 'button']) !!}</td>
-                                    @endforeach
-                                </tr>
+                                    </tr>
+                                @endforeach
+
                         </tbody>
                     </table>
                 @endif
