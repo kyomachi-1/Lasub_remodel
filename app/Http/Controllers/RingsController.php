@@ -81,7 +81,11 @@ class RingsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $ring = Ring::find($id);
+        
+        return view('rings.edit',[
+            'ring' => $ring,
+            ]);
     }
 
     /**
@@ -93,7 +97,10 @@ class RingsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $ring = Ring::find($id);
+        $ring->ring_name = $request->ring_name;
+        $ring->save();
+        return redirect('rings.index');
     }
 
     /**
