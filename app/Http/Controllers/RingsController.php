@@ -111,6 +111,8 @@ class RingsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $ring = Ring::find($id);
+        $ring->delete();
+        return redirect('rings');
     }
 }
