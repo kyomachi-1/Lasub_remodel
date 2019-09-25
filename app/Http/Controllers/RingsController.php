@@ -13,7 +13,16 @@ class RingsController extends Controller
      */
     public function index()
     {
-        //
+        if (\Auth::check()) {
+            $user = \Auth::user();
+            $id = \Auth::id();
+            $rings = $user->rings->where('user_id', $id);
+            
+            return view('rings.index',[
+                'rings' => $rings ]);
+        } else {
+            return view('/');
+        }
     }
 
     /**
