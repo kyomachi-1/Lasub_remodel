@@ -100,7 +100,7 @@ class RingsController extends Controller
         $ring = Ring::find($id);
         $ring->ring_name = $request->ring_name;
         $ring->save();
-        return redirect('rings.index');
+        return redirect('rings');
     }
 
     /**
