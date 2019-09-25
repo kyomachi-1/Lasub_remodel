@@ -17,6 +17,13 @@
                     You are logged in!
                 </div>
             </div>
+            <div class="mt-3">
+                <a class="btn btn-primary btn-block" href="{{ route('rings.index') }}" role="button">Card study</a>
+            </div>
+            <div class="mt-3">
+                <a class="btn btn-success btn-block disabled" href="{{ route('rings.index') }}" role="button" >Note study</a>
+            </div>
+            </div>
         </div>
     </div>
 </div>

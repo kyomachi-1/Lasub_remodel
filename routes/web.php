@@ -24,3 +24,5 @@ Route::post('/api/users/subscription', 'WebController@set_subscription')->middle
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('rings', 'RingsController');
