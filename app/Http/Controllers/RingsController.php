@@ -18,9 +18,15 @@ class RingsController extends Controller
             $user = \Auth::user();
             $id = \Auth::id();
             $rings = $user->rings->where('user_id', $id);
-            
+            $num_rings = $rings->count();
+            $customer_id = $user->customer_id;
+
             return view('rings.index',[
-                'rings' => $rings ]);
+                'rings' => $rings,
+                'num_rings' => $num_rings,
+                'customer_id' => $customer_id
+                ]);
+
         } else {
             return view('/');
         }
