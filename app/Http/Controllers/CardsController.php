@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Ring;   // 追記
 use App\Card;
 
 class CardsController extends Controller
@@ -12,9 +13,18 @@ class CardsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
+        // ルートパラメータを引数に指定
     {
-        //
+        // リングの取得
+        $ring = Ring::find($id);
+        // カードの取得
+        $cards = $ring->cards->where('ring_id', $id);
+        // view の指定
+        return view ('cards.index',[
+            'ring' => $ring,
+            'cards' => $cards
+            ]);
     }
 
     /**
