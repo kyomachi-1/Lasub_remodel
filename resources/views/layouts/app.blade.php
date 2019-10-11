@@ -16,9 +16,20 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    
+    <!-- Fontawesome5 -->
+    <script src="https://kit.fontawesome.com/72aac185dc.js" crossorigin="anonymous"></script>
 
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+
+    <!-- Styles index.blade.php -->
+    <style>
+        .hover:hover {
+        color: #212529;
+        background-color: #cfcec8;
+        }
+    </style>
 </head>
 
 <body>
