@@ -13,13 +13,18 @@ class CardsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index($ringId)
         // ルートパラメータを引数に指定
     {
         // リングの取得
-        $ring = Ring::find($id);
+        $ring = Ring::find($ringId);
         // カードの取得
-        $cards = $ring->cards->where('ring_id', $id);
+        $cards = $ring->cards->where('ring_id', $ringId);
+
+        // 取得データの確認
+        // dd($ringId,$ring,$cards);
+        // exit;
+
         // view の指定
         return view ('cards.index',[
             'ring' => $ring,
@@ -32,9 +37,19 @@ class CardsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($ringId)
     {
-        //
+        // ルートの確認
+        echo 'リングID' . $ringId;
+        echo '<br>';
+        echo 'カード新規作成ページ';
+        exit;
+
+        // カードの新規作成
+        $card = new Card;
+        return view('cards.create',[
+            'card' => $card,
+            ]);
     }
 
     /**
@@ -43,9 +58,16 @@ class CardsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $ringId)
     {
-        //
+        $card = new Card;
+
+        $card->create([
+            'card_front' => $request->card_front,
+            'card_back' => $request->card_back
+            ]);
+            $url = route('cards.index');
+            return redirect()->route('cards.index');
     }
 
     /**
@@ -54,9 +76,23 @@ class CardsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($ringId,$cardId)
     {
-        //
+        $card = Card::find($cardId);
+
+        // ルートの確認
+        echo 'リングID' . $ringId;
+        echo '<br>';
+        echo 'カードID' . $cardId;
+        echo '<br>';
+        echo 'カードの表は' . $card->card_front;
+        echo '<br>';
+        echo 'カードの裏は' . $card->card_back;
+        exit;
+
+        return view('cards.show',[
+            'card' => $card
+            ]);
     }
 
     /**
@@ -65,9 +101,22 @@ class CardsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($ringId,$cardId)
     {
-        //
+        $card = Card::find($cardId);
+
+        // ルートの確認
+        echo 'リングID' . $ringId;
+        echo '<br>';
+        echo 'カードID' . $cardId;
+        echo '<br>';
+        echo 'カードの表は' . $card->card_front;
+        echo '<br>';
+        echo 'カードの裏は' . $card->card_back;
+        exit;
+
+        return view('cards.edit',[
+            'card' => $card]);
     }
 
     /**
@@ -77,9 +126,16 @@ class CardsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $ringId, $cardId)
     {
-        //
+        $card = Card::find($cardId);
+        $card->update([
+            'card_front' => $request->card_front,
+            'card_back' => $request->card_back
+            ]);
+
+        $url = route('card.index');
+        return redirect()->route('cards.index');
     }
 
     /**
@@ -88,8 +144,12 @@ class CardsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($ringId, $cardId)
     {
-        //
+        $card = Card::find($cardId);
+        $card->delete();
+
+        $url = route('card.index');
+        return redirect('cards.index');
     }
 }
