@@ -61,8 +61,9 @@ class RingsController extends Controller
             $ring->user_id = $id;
             $ring->ring_name = $request->ring_name;
             $ring->save();
-    
-            return redirect('/rings');
+
+            $url = route('rings.index');
+            return redirect()->route('rings.index');
         } else {
             return view('/');
         }
@@ -106,7 +107,9 @@ class RingsController extends Controller
         $ring = Ring::find($id);
         $ring->ring_name = $request->ring_name;
         $ring->save();
-        return redirect('rings');
+
+        $url = route('rings.index');
+        return redirect()->route('rings.index');
     }
 
     /**
@@ -119,6 +122,8 @@ class RingsController extends Controller
     {
         $ring = Ring::find($id);
         $ring->delete();
-        return redirect('rings');
+
+        $url = route('rings.index');
+        return redirect()->route('rings.index');
     }
 }
