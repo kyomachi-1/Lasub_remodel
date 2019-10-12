@@ -57,14 +57,21 @@ class CardsController extends Controller
      */
     public function store(Request $request, $ringId)
     {
+        $ring = Ring::find($ringId);
+        $card = new Card;
+        $card = $ring->cards()->create([
+            'ring_id' => $ringId,
+            'card_front' => $request->card_front,
+            'card_back' => $request->card_back
+                    ]);
         // その１
-            $card = new Card;
+            // $card = new Card;
 
-            $card->create([
-                'ring_id' => $ringId,
-                'card_front' => $request->card_front,
-                'card_back' => $request->card_back
-                ]);
+            // $card->create([
+            //     'ring_id' => $ringId,
+            //     'card_front' => $request->card_front,
+            //     'card_back' => $request->card_back
+            //     ]);
         // その２
             // $card = new Card;
 
@@ -84,7 +91,6 @@ class CardsController extends Controller
             //     ]);
         // その４
             // $card = new Card;
-
             // $card->ring_id = $ringId;
             // $card->card_front = $request->card_front;
             // $card->card_back = $request->card_back;
