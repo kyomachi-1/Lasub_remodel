@@ -39,16 +39,13 @@ class CardsController extends Controller
      */
     public function create($ringId)
     {
-        // ルートの確認
-        echo 'リングID' . $ringId;
-        echo '<br>';
-        echo 'カード新規作成ページ';
-        exit;
-
         // カードの新規作成
+        $ring = Ring::find($ringId);
+
         $card = new Card;
         return view('cards.create',[
-            'card' => $card,
+            'ring' => $ring,
+            'card' => $card
             ]);
     }
 
