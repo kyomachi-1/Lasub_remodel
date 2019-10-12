@@ -111,7 +111,7 @@
             </div>
             <div class="fixed-bottom mx-auto text-center align-middle circle rounded-circle" style="background: #32a4a8; width: 70px; height: 70px;display:inline-block; ">
                 <a class="nav-item nav-link px-3 py-0"
-                href="{{ route('rings.index') }}">
+                href="{{ route('cards.create', ['ringId' => $card->ring_id]) }}">
                 <i class="fas fa-plus fa-3x" style="color: grey; line-height: 70px"></i>
                 </a>
             </div>
