@@ -162,8 +162,8 @@ class CardsController extends Controller
             'card_back' => $request->card_back
             ]);
 
-        $url = route('card.index');
-        return redirect()->route('cards.index');
+        return redirect()->route('cards.index',$ringId);
+
     }
 
     /**
@@ -177,7 +177,7 @@ class CardsController extends Controller
         $card = Card::find($cardId);
         $card->delete();
 
-        $url = route('card.index');
-        return redirect('cards.index');
+        return redirect()->route('cards.index',$ringId);
+
     }
 }
