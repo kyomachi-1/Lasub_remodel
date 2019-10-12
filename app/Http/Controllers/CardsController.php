@@ -57,14 +57,45 @@ class CardsController extends Controller
      */
     public function store(Request $request, $ringId)
     {
-        $card = new Card;
+        // その１
+            $card = new Card;
 
-        $card->create([
-            'card_front' => $request->card_front,
-            'card_back' => $request->card_back
-            ]);
-            $url = route('cards.index');
-            return redirect()->route('cards.index');
+            $card->create([
+                'ring_id' => $ringId,
+                'card_front' => $request->card_front,
+                'card_back' => $request->card_back
+                ]);
+        // その２
+            // $card = new Card;
+
+            // $card->create([
+            //     'ring_id' => $request->ring_id = $ringId,
+            //     'card_front' => $request->card_front,
+            //     'card_back' => $request->card_back
+            //     ]);
+        // その３
+            // $ring = Ring::find($ringId);
+            // $card = new Card;
+
+            // $card->create([
+            //     'ring_id' => $ring->id,
+            //     'card_front' => $request->card_front,
+            //     'card_back' => $request->card_back
+            //     ]);
+        // その４
+            // $card = new Card;
+
+            // $card->ring_id = $ringId;
+            // $card->card_front = $request->card_front;
+            // $card->card_back = $request->card_back;
+            // $card->save();
+
+        // リダイレクト その１
+        return redirect()->route('cards.index',$ringId);
+
+        // リダイレクト その２
+        // $url = route('cards.index',$ringId);
+        // return redirect($url);
     }
 
     /**
