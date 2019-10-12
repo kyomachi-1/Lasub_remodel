@@ -41,7 +41,6 @@ class CardsController extends Controller
     {
         // カードの新規作成
         $ring = Ring::find($ringId);
-
         $card = new Card;
         return view('cards.create',[
             'ring' => $ring,
@@ -59,11 +58,24 @@ class CardsController extends Controller
     {
         $ring = Ring::find($ringId);
         $card = new Card;
-        $card = $ring->cards()->create([
-            'ring_id' => $ringId,
-            'card_front' => $request->card_front,
-            'card_back' => $request->card_back
-                    ]);
+
+        if($request->card_front === null && $request->card_back !== null) {
+            $card = $ring->cards()->create([
+                'card_back' => $request->card_back
+                ]);
+        } elseif ($request->card_front !== null && $request->card_back === null) {
+            $card = $ring->cards()->create([
+                'card_front' => $request->card_front,
+                ]);
+        } elseif ($request->card_front === null && $request->card_back === null) {
+            $card = $ring->cards()->create();
+        } else {
+            $card = $ring->cards()->create([
+                'card_front' => $request->card_front,
+                'card_back' => $request->card_back
+                ]);
+        }
+
         // その１
             // $card = new Card;
 
