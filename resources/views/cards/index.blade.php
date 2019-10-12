@@ -100,17 +100,28 @@
         @endforeach
     @endif
 
-    <nav class="navbar navbar-expand-lg fixed-bottom shadow-sm nav-fill nav-justified px-0" style="background: linear-gradient(to bottom, #32a4a8, #84c8ca);">
+    <nav class="navbar navbar-expand-lg fixed-bottom shadow-smpx-0 py-0" style="background: #32a4a8;;">
         <div class="container">
-            <a class="nav-item nav-link px-0" style="color: black; text-decoration: none;" href="#">
-                <i class="fas fa-play fa-lg" style="color: grey;"></i>
-            </a>
-            <a class="nav-item nav-link px-0" style="color: black; text-decoration: none;" href="#">
-                <i class="fas fa-plus fa-lg" style="color: grey;"></i>
-            </a>
-            <a class="nav-item nav-link px-0" style="color: black; text-decoration: none;" href="#">
-                <i class="fas fa-cog fa-lg" style="color: grey;"></i>
-            </a>
+            <div class="px-3 py-0">
+                <a class="nav-item nav-link px-3"
+                style="color: black; text-decoration: none;"
+                href="{{ route('rings.index') }}">
+                    <i class="fas fa-play fa-lg" style="color: grey;"></i>
+                </a>
+            </div>
+            <div class="fixed-bottom mx-auto text-center align-middle circle rounded-circle" style="background: #32a4a8; width: 70px; height: 70px;display:inline-block; ">
+                <a class="nav-item nav-link px-3 py-0"
+                href="{{ route('rings.index') }}">
+                <i class="fas fa-plus fa-3x" style="color: grey; line-height: 70px"></i>
+                </a>
+            </div>
+            <div class="px-3 py-0">
+                <a class="nav-item nav-link px-3"
+                style="color: black; text-decoration: none;"
+                href="{{ route('rings.index') }}">
+                    <i class="fas fa-cog fa-lg" style="color: grey;"></i>
+                </a>
+            </div>
         </div>
     </nav>
 
