@@ -127,14 +127,6 @@ class CardsController extends Controller
         $card = Card::find($cardId);
 
         // ルートの確認
-        echo 'リングID' . $ringId;
-        echo '<br>';
-        echo 'カードID' . $cardId;
-        echo '<br>';
-        echo 'カードの表は' . $card->card_front;
-        echo '<br>';
-        echo 'カードの裏は' . $card->card_back;
-        exit;
 
         return view('cards.show',[
             'card' => $card
@@ -152,14 +144,14 @@ class CardsController extends Controller
         $card = Card::find($cardId);
 
         // ルートの確認
-        echo 'リングID' . $ringId;
-        echo '<br>';
-        echo 'カードID' . $cardId;
-        echo '<br>';
-        echo 'カードの表は' . $card->card_front;
-        echo '<br>';
-        echo 'カードの裏は' . $card->card_back;
-        exit;
+        // echo 'リングID' . $ringId;
+        // echo '<br>';
+        // echo 'カードID' . $cardId;
+        // echo '<br>';
+        // echo 'カードの表は' . $card->card_front;
+        // echo '<br>';
+        // echo 'カードの裏は' . $card->card_back;
+        // exit;
 
         return view('cards.edit',[
             'card' => $card]);
@@ -197,5 +189,17 @@ class CardsController extends Controller
 
         return redirect()->route('cards.index',$ringId);
 
+    }
+
+    public function study($ringId)
+    {
+        $ring = Ring::find($ringId);
+        $card = new Card;
+        $cards = Card::where('ring_id', $ringId)->get();
+
+        return view('cards.study',[
+            'ring' => $ring,
+            'cards' => $cards
+            ]);
     }
 }
