@@ -91,9 +91,9 @@
     @if(count($cards) > 0)
         @foreach ($cards as $card)
         <div class="container">
-            <div class="hover row justify-content-around border-bottom py-3">
-                <div class="col border border-info rounded text-truncate ml-2 mr-2 p-2">{!! $card->card_front !!}</div>
-                <div class="col border border-info rounded text-truncate mr-2 p-2">{!! $card->card_back !!}</div>
+            <div class="hover row position-relative justify-content-around border-bottom py-3">
+                <div class="col position-static border border-info rounded text-truncate ml-2 mr-2 p-2"><a class="stretched-link text-decoration-none text-reset" href="{{ route('cards.show', ['ringId' => $card->ring_id, 'cardId' => $card->id]) }}">{!! $card->card_front !!}</a></div>
+                <div class="col position-static border border-info rounded text-truncate mr-2 p-2"><a class="stretched-link text-decoration-none text-reset" href="{{ route('cards.show', ['ringId' => $card->ring_id, 'cardId' => $card->id]) }}">{!! $card->card_back !!}</a></div>
                 <button type="button" class="btn py-2 px-2 mr-2" style="font-size: 12px; width: 60px; height: 42px; background-color: #E4DFC1;">表示</button>
             </div>
         </div>
@@ -105,7 +105,7 @@
             <div class="px-3 py-0">
                 <a class="nav-item nav-link px-3"
                 style="color: black; text-decoration: none;"
-                href="{{ route('rings.index') }}">
+                href="{{ route('cards.study', ['id' => $ring->id]) }}">
                     <i class="fas fa-play fa-lg" style="color: grey;"></i>
                 </a>
             </div>
