@@ -27,4 +27,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('rings', 'RingsController')->middleware('auth');
 
+Route::get('rings/{ring}/cards/study', 'CardsController@study')->middleware('auth')->name('cards.study');
+
 Route::resource('rings/{ring}/cards', 'CardsController')->middleware('auth');
