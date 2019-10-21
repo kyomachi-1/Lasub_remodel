@@ -9,12 +9,24 @@
         echo '</p>';
 }
 ?>
+
+{!! $cards->links() !!}
+
+{!! link_to_route (
+    'cards.index', 'カード一覧に戻る', [
+    'id' => $ring->id ], [
+    'class' => 'btn btn-success btn-block',
+    'style' => 'text-decoration: none',
+    'role' => 'button']
+) !!}
+
 <style>
     h2 {
         color: blue;
         margin: 0;
         margin-top: 10px;
     }
+
     p {
         margin: 0;
     }

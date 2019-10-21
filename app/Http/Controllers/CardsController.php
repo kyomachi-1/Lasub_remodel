@@ -195,7 +195,7 @@ class CardsController extends Controller
     {
         $ring = Ring::find($ringId);
         $card = new Card;
-        $cards = Card::where('ring_id', $ringId)->get();
+        $cards = Card::where('ring_id', $ringId)->paginate(1);
 
         return view('cards.study',[
             'ring' => $ring,
