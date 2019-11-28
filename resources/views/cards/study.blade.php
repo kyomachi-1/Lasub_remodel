@@ -1,33 +1,17 @@
-<?php
-    foreach ($cards as $card) {
-        echo '<h2>';
-        echo 'id：' . $card->id . 'のカードや';
-        echo '</h2><p>';
-        echo '表：' . $card->card_front ;
-        echo '</p><p>';
-        echo '裏：' . $card->card_back;
-        echo '</p>';
-}
-?>
+@extends('layouts.app')
 
-{!! $cards->links() !!}
+@section('content')
+    @if(count($cards) > 0)
+        @foreach ($cards as $card)
+    <div class="container-fluid" style="font-weight: bold; position: relative;">   
+        <div class="row row-container justify-content-center">
+            <div id="card_front_text" class="col-12 card_front"><div class="card-text">{{ $card->card_front }}</div></div>
+            <div id="card_back_text" class="col-12 card_back"><div class="card-text">{{ $card->card_back }}</div></div>
+        </div>
+        {!! $cards->links('vendor/pagination/defaultSpin',['card' => $card]) !!}
 
-{!! link_to_route (
-    'cards.index', 'カード一覧に戻る', [
-    'id' => $ring->id ], [
-    'class' => 'btn btn-success btn-block',
-    'style' => 'text-decoration: none',
-    'role' => 'button']
-) !!}
+    </div>
 
-<style>
-    h2 {
-        color: blue;
-        margin: 0;
-        margin-top: 10px;
-    }
-
-    p {
-        margin: 0;
-    }
-</style>
+        @endforeach
+    @endif
+@endsection

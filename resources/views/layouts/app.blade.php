@@ -29,17 +29,101 @@
         color: #212529;
         background-color: #cfcec8;
         }
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        
+        .card_front {
+            width: 100%;
+            padding: 0;
+            height: 500px;
+            color: #FFFFFF;
+            background: #C3A572;
+            font-size: 28px;
+            }
+        .card_back {
+            width: 100%;
+            padding: 0;
+            height: 500px;
+            color: #FFFFFF;
+            background: #008499;
+            font-size: 28px;
+        }
+        
+        .card-text {
+            display: flex;
+            height: 500px;
+            padding: 32px;
+            align-items: center;
+            justify-content: center;
+        }
+
+@media screen and (min-width:300px) and (max-width:820px) {
+
+    html {
+        width: 100%;
+        height: 100%;
+    }
+
+    body {
+        width: 100%;
+        height: 100%;
+    }
+    .comtainer {
+        width: 100%;
+    }
+    .container-fluid {
+        width: 100%;
+        padding: 0;
+        height: 100%;    
+    }
+    .navbar {
+        height: 10%;
+    }
+    .row-container {
+        width: 100%;
+        padding: 0;
+        margin: 0 auto;
+        height: 85%;      
+    }
+
+    .card_front {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        color: #FFFFFF;
+        background: #C3A572;
+        }
+    
+    .card_back {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        color: #FFFFFF;
+        background: #008499;
+    }
+
+    .row-button-container {
+        width: 100%;
+        padding: 0;
+        margin: 0 auto;
+        height: 5%;     
+    }
+}
     </style>
 </head>
 
-<body>
-    <div id="app">
+<body class="h-100">
+    <div id="app" class="h-100">
 
         @component('components.header')
         @endcomponent
 
-        <div class="container">
-            <main class="py-4">
+        <div class="container p-0 h-100">
+            <main class="h-100">
                 @yield('content')
             </main>
         </div>

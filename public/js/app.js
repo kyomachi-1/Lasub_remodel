@@ -51377,6 +51377,31 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/study.js":
+/*!*******************************!*\
+  !*** ./resources/js/study.js ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  $('.card_front_text').show();
+  $('.card_back_text').hide();
+  $('.button').click(function () {
+    $('.container-fluid').toggleClass('switch');
+
+    if ($('.container-fluid').hasClass('switch')) {
+      $('#card_front_text').hide();
+      $('#card_back_text').show();
+    } else {
+      $('#card_front_text').show();
+      $('#card_back_text').hide();
+    }
+  });
+});
+
+/***/ }),
+
 /***/ "./resources/sass/app.scss":
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
@@ -51389,13 +51414,14 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 0:
-/*!*************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ***!
-  \*************************************************************/
+/*!*************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/js/study.js ./resources/sass/app.scss ***!
+  \*************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /home/ec2-user/environment/lasub_remodel/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /home/ec2-user/environment/lasub_remodel/resources/js/study.js */"./resources/js/study.js");
 module.exports = __webpack_require__(/*! /home/ec2-user/environment/lasub_remodel/resources/sass/app.scss */"./resources/sass/app.scss");
 
 

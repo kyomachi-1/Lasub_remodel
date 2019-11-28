@@ -92,12 +92,14 @@
         @foreach ($cards as $card)
         <div class="container">
             <div class="hover row position-relative justify-content-around border-bottom py-3">
-                <div class="col position-static border border-info rounded text-truncate ml-2 mr-2 p-2"><a class="stretched-link text-decoration-none text-reset" href="{{ route('cards.show', ['ringId' => $card->ring_id, 'cardId' => $card->id]) }}">{!! $card->card_front !!}</a></div>
-                <div class="col position-static border border-info rounded text-truncate mr-2 p-2"><a class="stretched-link text-decoration-none text-reset" href="{{ route('cards.show', ['ringId' => $card->ring_id, 'cardId' => $card->id]) }}">{!! $card->card_back !!}</a></div>
+                <div class="col position-static border border-info rounded text-truncate ml-2 mr-2 p-2"><a class="stretched-link text-decoration-none text-reset" href="{{ route('cards.edit', ['ringId' => $card->ring_id, 'cardId' => $card->id]) }}">{!! $card->card_front !!}</a></div>
+                <div class="col position-static border border-info rounded text-truncate mr-2 p-2"><a class="stretched-link text-decoration-none text-reset" href="{{ route('cards.edit', ['ringId' => $card->ring_id, 'cardId' => $card->id]) }}">{!! $card->card_back !!}</a></div>
                 <button type="button" class="btn py-2 px-2 mr-2" style="font-size: 12px; width: 60px; height: 42px; background-color: #E4DFC1;">表示</button>
             </div>
         </div>
         @endforeach
+    @else
+        <div class="container p-5">カードを作成しましょう</div>
     @endif
 
     <nav class="navbar navbar-expand-lg fixed-bottom shadow-smpx-0 py-0" style="background: #32a4a8;;">
@@ -111,7 +113,7 @@
             </div>
             <div class="fixed-bottom mx-auto text-center align-middle circle rounded-circle" style="background: #32a4a8; width: 70px; height: 70px;display:inline-block; ">
                 <a class="nav-item nav-link px-3 py-0"
-                href="{{ route('cards.create', ['ringId' => $card->ring_id]) }}">
+                href="{{ route('cards.create', ['id' => $ring->id]) }}">
                 <i class="fas fa-plus fa-3x" style="color: grey; line-height: 70px"></i>
                 </a>
             </div>
